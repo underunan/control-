@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="miApp">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Mi Control de compras</title>
+		<link rel="stylesheet" type="text/css" href="res/bootstrap-3.3.2/css/bootstrap.min.css">
+		<style>
+		body{
+			background-color: #F3F1F2;
+		}
+
+	#titulo{
+		font: 20px bold;
+		text-align: center;
+	}
+	#producto{
+		margin-top: 2%;
+	}
+	#tabla{
+		margin-top: 2%;
+	}
+	#total{
+		font-size: 14px;
+		margin-top: 2%;
+	}
+	#stilo{
+		font-size: 13px;
+		margin-top: 2%;
+	}
+	</style>
+	</head>
+
+	<body class="panel panel-primary">
+		<div id="titulo" class="col-xs-12 col-md-12 panel-heading">
+					
+		</div>
+		<div class="container-fluid" ng-controller="set_controller">
+			
+			<div class="row panel-body">
+				
+				<div id="producto" class="input-group input-group-lg col-xs-12 col-md-12">
+					<span class="input-group-addon glyphicon glyphicon-pencil" id="sizing-addon1"></span>
+					<input type="text" class="form-control" placeholder="Nombre Producto" aria-describedby="sizing-addon1" ng-model="set.nombre">
+				</div>
+				
+				<div id="producto" class="input-group input-group-lg col-xs-12 col-md-12">
+					<span class="input-group-addon glyphicon glyphicon-shopping-cart" id="sizing-addon1"></span>
+					<input type="text" class="form-control" placeholder="Cantidad o libras" aria-describedby="sizing-addon1" ng-model="set.cantidad">
+					
+				</div>
+
+				<div id="producto" class="input-group input-group-lg col-xs-12 col-md-12">
+					<span class="input-group-addon" id="sizing-addon1">C$</span>
+					<input type="text" class="form-control" placeholder="Precio" aria-describedby="sizing-addon1" ng-model="set.precio">
+					
+				</div>
+				<button id="btn" type="button" class="col-xs-6 col-md-12 btn btn-success btn-lg glyphicon glyphicon-ok" data-toggle="tooltip" data-placement="top" title="Guardar datos" ng-click="set_producto(set)"></button>
+				<button id="btn" type="button" class="col-xs-6 col-md-12 btn btn-danger btn-lg glyphicon glyphicon-floppy-remove" data-toggle="tooltip" data-placement="top" title="Borrar todos los registros" ng-click="delete_all_producto()">
+				</button>
+			<div id="tabla" class="table-responsived">
+				<label id="total" class="col-xs-12 label label-danger">Total: C${{total}}</label>
+				<table  class="col-xs-12 table table-striped">
+					<tr>
+						<th>Nombre</th>
+						<th>cantidad</th>
+						<th>precio</th>
+						<th>subtotal</th>
+					</tr>
+					<tr id="stilo"  class="success" ng-repeat="val in get_producto | orderBy: 'nombre'">
+						<td style="color:#089DE0; font: bold 16px solid;">{{val.nombre}}</td>
+						<td>{{val.cantidad}}</td>
+						<td>C${{val.precio}}</td>
+						<td>C${{val.subtotal}}</td>
+						<td><a ng-click="delete_producto(val.nombre)"><span class="glyphicon glyphicon-remove"></span></a></td>
+					</tr>
+				</table>
+			</div>
+			</div>
+				
+		</div>
+
+		<!--panel de información -->
+		<div class="panel-footer col-xs-12">
+			<button type="button" class="btn btn-info glyphicon glyphicon-info-sign col-xs-12" data-toggle="modal" data-target=".bs-example-modal-sm"></button>
+
+			<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			     <div class="alert alert-info" role="alert"><strong>Creado por:</strong>Horacio Javier Rodrigues Altamirano</di>
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+
+
+	<script type="text/javascript" src="res/jquery-2.1.3.js"></script>
+	<script type="text/javascript" src="res/angular.min.js"></script>
+	<script type="text/javascript" src="res/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="api.js"></script>
+	<script type="text/javascript" src="eventos.js"></script>
+	</body>
+</html>

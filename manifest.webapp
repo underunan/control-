@@ -1,0 +1,20 @@
+{
+	"name":"control++",
+	"description":"App que te ayudara al realizar tus compras mostrandote el total a gastar al finalizar tus compras.",
+	"launch_path":"/index.html",
+	"icons":{
+	"128":"/res/img/controlCompras.jpg"
+	},
+	"developer":{
+	"name":"Horacio Rodriguez",
+	"url":"https://drive.google.com/folderview?id=0Bw41wD_n4829TFItcU5ncGp1Nmc&usp=drive_web"
+	},
+	"default_locale":"es",
+	"type":"web",
+	"permissions":{
+	"storage":{
+		"description":"Requerida para almacenar la información."
+	}
+	},
+	"version":"1.1.0"
+}
